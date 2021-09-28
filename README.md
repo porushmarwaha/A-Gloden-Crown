@@ -11,6 +11,7 @@ Build -
 Run - 
 
     node geektrust.js <absolute_path_to_input_file>
+    
 
     npm start <absolute_path_to_input_file>
 
