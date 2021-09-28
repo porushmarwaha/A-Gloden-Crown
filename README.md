@@ -1,24 +1,23 @@
 # A-Gloden-Crown
-Greek Trust Problem 1 
 
+Greek Trust Problem 1
 
-Build - 
+Build -
 
     npm ci --silent
 
-*ci - clean install
+\*ci - clean install
 
-Run - 
+Run -
 
     node geektrust.js <absolute_path_to_input_file>
-    
 
     npm start <absolute_path_to_input_file>
 
-Testing -  
+Testing -
 
     npm test
 
-Testing Coverage - 
+Testing Coverage -
 
     npm test -- --coverage
