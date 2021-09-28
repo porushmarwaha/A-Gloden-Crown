@@ -4,20 +4,20 @@ Greek Trust Problem 1
 
 Build - 
 
-npm ci --silent
+    npm ci --silent
 
 *ci - clean install
 
 Run - 
 
-node geektrust.js <absolute_path_to_input_file>
+    node geektrust.js <absolute_path_to_input_file>
 
-npm start <absolute_path_to_input_file>
+    npm start <absolute_path_to_input_file>
 
 Testing -  
 
-npm test
+    npm test
 
 Testing Coverage - 
 
-npm test -- --coverage
+    npm test -- --coverage
