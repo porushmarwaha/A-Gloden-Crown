@@ -1,4 +1,4 @@
-const checkRuler = require("../src/supportChecker");
+const checkRuler = require("../src/supportCheck");
 const messageFormSpace = require("../src/file");
 
 it("CheckRule Funtion with Expected correct Output  - ", () => {
