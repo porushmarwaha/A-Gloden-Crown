@@ -1,7 +1,7 @@
 const decryptor = require("./decryption");
 const isEmblemPresent = require("./emblemCheck");
 
-const MIN_SUPPORT_FOR_KING = 4;
+const MIN_SUPPORT_FOR_KING = 1;
 const NOT_KING = "NONE";
 
 const kindomEmblem = {
@@ -21,23 +21,31 @@ const isSupporting = (key, cipher) => {
 };
 
 const checkRuler = (encryptedLetter) => {
-  if (encryptedLetter.length < 3) return NOT_KING;
-
-  const support = new Set();
-  support.add("SPACE");
+  let obj = {};
 
   const result = [];
 
   encryptedLetter.map((e) => {
     const message = e.split(" ");
-    const key = message.shift();
+    const senderKingdom = message.shift();
+    const reciverKingdom = message.shift();
 
-    if (isSupporting(key, message.join(""))) support.add(key);
+    if (!obj[senderKingdom]) obj[senderKingdom] = [];
+
+    if (isSupporting(reciverKingdom, message.join("")))
+      obj[senderKingdom].push(reciverKingdom);
   });
 
-  support.forEach((e) => result.push(e));
+  let winner = "";
+  for (let i in obj) {
+    if (winner === "") {
+      winner = i;
+    } else if (obj[i].length > obj[winner].length) winner = i;
+  }
 
-  return result.length >= MIN_SUPPORT_FOR_KING ? result.join(" ") : NOT_KING;
+  result.push(winner);
+  result.push(obj[winner].join(" "));
+  return result.join(" ");
 };
 
 module.exports = checkRuler;
